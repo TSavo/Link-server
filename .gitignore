@@ -12,4 +12,25 @@ logs
 results
 
 npm-debug.log
+<<<<<<< Upstream, based on origin/master
 node_modules
+=======
+
+
+########################
+# misc / editors
+########################
+*~
+*#
+.DS_STORE
+.netbeans
+nbproject
+.idea
+
+
+########################
+# local config
+########################
+config/local.js
+/LinkDB-Feathercoin
+>>>>>>> ec17750 Adding search to controller
