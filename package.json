@@ -1,8 +1,7 @@
 {
-  "name": "Link-server",
-  "private": true,
+  "name": "blockchain-link-server",
   "version": "0.0.0",
-  "description": "a Sails application",
+  "description": "A Link web interface",
   "dependencies": {
     "sails": "0.9.7",
     "grunt": "0.4.1",
