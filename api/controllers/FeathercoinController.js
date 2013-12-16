@@ -16,18 +16,20 @@
  * 
  * @docs :: http://sailsjs.org/#!documentation/controllers
  */
-var publisher = require("blockchain-link").LinkPublisher;
-var db = require("blockchain-link").LinkReader;
+var LinkPublisher = require("blockchain-link").LinkPublisher;
+var LinkReader = require("blockchain-link").LinkReader;
 var bitcoin = require('bitcoin');
 var client = new bitcoin.Client({
 	host : 'localhost',
 	port : 8332,
 	user : 'Kevlar',
 	pass : 'zabbas',
-	version : 14,
 });
-
-db = db.getDB("Feathercoin", client)
+client.opts = {
+	version : 14
+};
+var db = LinkReader.getDB("Feathercoin", client);
+var publisher = new LinkPublisher(client);
 module.exports = {
 
 	/**
@@ -44,9 +46,23 @@ module.exports = {
 	 */
 	publish : function(req, res) {
 
-		// Send a JSON response
-		return res.json({
-			hello : 'world'
+		var message = {};
+		if (req.param("name")) {
+			message.name = req.param("name");
+		}
+		if (req.param("description")) {
+			message.description = req.param("description");
+		}
+		if (req.param("keywords")) {
+			message.keywords = req.param("keywords");
+		}
+		if (req.param("payloadInline")) {
+			message.payloadInline = req.param("payloadInline");
+		}
+		publisher.publish(message, 0.01, function(tx) {
+			res.json({
+				tx : tx
+			});
 		});
 	},
 

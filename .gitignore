@@ -37,7 +37,7 @@ npm-debug.log
 .netbeans
 nbproject
 .idea
-
+.tmp
 
 ########################
 # local config
