@@ -59,7 +59,7 @@ module.exports = {
 		if (req.param("payloadInline")) {
 			message.payloadInline = req.param("payloadInline");
 		}
-		publisher.publish(message, 0.05, function(tx) {
+		publisher.publish(message, function(tx) {
 			res.json({
 				tx : tx
 			});

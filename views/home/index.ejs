@@ -11,7 +11,13 @@
     .getting-started li{overflow:visible;clear:both}.delete{width:690px}
     </style>
 <![endif]-->
-
+<!--SCRIPTS-->
+<script src="/linker/js/jquery.js"></script>
+<script src="/linker/js/search.js"></script>
+<!--SCRIPTS END-->
+<!--TEMPLATES-->
+<script type="text/javascript" src="/jst.js"></script>
+<!--TEMPLATES END-->
 <div class="top-bar">
     <div class="container clearfix">
         <img class="logo" src="http://sailsjs.org/images/sails-logo.jpg" />
@@ -20,7 +26,9 @@
 
 <div class="container clearfix">
     <div class="main">
-
+		<form>
+		  <input id="searchQuery"></input><button id="searchButton">Search</button>
+		</form>
     </div>
     <div class="side-bar">
         <h4 id="new">
