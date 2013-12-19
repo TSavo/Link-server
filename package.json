@@ -8,8 +8,10 @@
     "sails-disk": "~0.9.0",
     "ejs": "0.8.4",
     "optimist": "0.3.4",
-    "blockchain-link": "~0.0.7",
-    "bitcoin": "~2.0.0"
+    "blockchain-link": "~0.0.8",
+    "bitcoin": "~2.0.0",
+    "levelup": "~0.18.2",
+    "leveldown": "~0.10.2"
   },
   "scripts": {
     "start": "node app.js",
