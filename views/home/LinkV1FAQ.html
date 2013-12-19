@@ -1,0 +1,259 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,800,300,600,700' rel='stylesheet' type='text/css'>
+<title>Linky McLinkerson</title>
+<style type="text/css">
+/* This is my body - there are many others like it but this one is mine*/
+
+body {
+	padding: 0px;
+	margin: 0px;
+	background-image:url('../../assets/images/bgnoise.png');
+	background-color: #9bb7c8;
+}
+
+/*The Plate on Which the World Sits*/
+
+#container {
+	width: 1000px;
+	position: relative;
+	margin: 0 auto;
+	background-image:url('../../assets/images/bgnoise.png');
+	background-color: #e8edf2;
+	-webkit-box-shadow: 0 10px 45px 0 rgba(15,15,15,0.2);
+	box-shadow: 0 10px 45px 0 rgba(15,15,15,0.2);
+}
+
+/*Header Menu CSS*/
+
+#header {
+	width: 100%;
+	height: 37px;
+	position: relative;
+	background-image:url('../../assets/images/bgnoise.png');
+	background-color: #d9dee2;
+	-webkit-box-shadow: 0 10px 45px 0 rgba(15,15,15,0.2);
+	box-shadow: 0 10px 45px 0 rgba(15,15,15,0.2);
+	text-align: center;
+}
+#header a:link {text-decoration:none; color:#223842}
+#header a:visited {text-decoration:none; color:#223842}
+#header a:hover {text-decoration:none; color:#375460}
+#header a:active {text-decoration:none; color:#223842}
+#header ul {
+	display: inline-block;
+	position: relative;
+	list-style-type: none;
+	margin: auto;
+}
+#header li {
+	line-height: 37px;
+	font-family: "Open Sans", sans-serif;
+	font-weight: 800;
+	font-size: 20px;
+	font-color: #223842;
+	text-shadow: 0px 1px 1px rgba(255,255,255,0.6);
+	float: left;
+	padding-right: 25px;
+}
+
+/*Body Div Tab Content CSS*/
+
+#FAQ-tab {
+	margin-top: 50px;
+	margin-left: 90px;
+	margin-right: 90px;
+	margin-bottom: 40px;
+	padding-bottom: 70px;
+	
+}
+
+#about-tab {
+	margin-top: 50px;
+	margin-left: 90px;
+	margin-right: 90px;
+	margin-bottom: 40px;
+	padding-bottom: 40px;
+	
+}
+
+#search-tab {
+	height: 600px;
+	margin-top: 50px;
+	margin-left: 90px;
+	margin-right: 90px;
+	margin-bottom: 40px;
+	padding-bottom: 40px;
+	
+}
+
+#search-tab .descriptionfont {
+	font-family: "Open Sans", sans-serif;
+	font-color: #172f3a;
+	text-align: justify;
+	text-justify: newspaper;
+	margin: 0 auto;
+	width: 800px;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+    letter-spacing: 0.034em;
+    word-spacing: 0.03em;
+}
+
+/*The Littlest Footer*/
+
+#footer {
+   position:absolute;
+   bottom:0;
+   width: 100%;
+   height: 30px;
+   text-align: center;
+   font-family: "Open Sans", sans-serif;
+   font-weight: 700;
+   font-size: 10px;
+   line-height: 30px;
+   font-color: #172f3a;
+   text-shadow: 0px 1px 1px rgba(255,255,255,0.6);
+   letter-spacing: 0.034em;
+   word-spacing: 0.03em;
+   text-transform: uppercase;
+   margin: auto;
+  
+}
+
+/*FAQ Page CSS*/
+
+.faq-question {
+	font-family: "Open Sans", sans-serif;
+	text-align: left;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 18px;
+    font-color: #172f3a;
+    letter-spacing: 0.034em;
+    word-spacing: 0.03em;
+}
+.faq-answer {
+	font-family: "Open Sans", sans-serif;
+	text-align: left;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 17px;
+    font-color: #172f3a;
+    letter-spacing: 0.034em;
+    word-spacing: 0.03em;
+}
+#FAQ-tab p{text-align:justify;}
+
+/*Search Page Form CSS*/
+
+.form-field {
+	font-family: "Open Sans", sans-serif;
+	font-weight: 400;
+	font-size: 20px;
+	letter-spacing: 0.054em;
+    word-spacing: 0.03em;
+    border: 1px solid #000;
+    background: #3e5d6b;
+    color: #f1f1f1;
+    padding:8px;
+    width: 480px;
+}
+.submit-button {
+	font-family: "Open Sans", sans-serif;
+	font-weight: 600;
+	font-size: 20px;
+	letter-spacing: 0.054em;
+	width: 150px;
+    word-spacing: 0.03em;
+    border: 1px solid #000000;
+    background: #7692a3;
+    background: -webkit-gradient(linear, left top, left bottom, from(#99b5c6), to(#7692a3));
+    background: -webkit-linear-gradient(top, #99b5c6, #7692a3);
+    background: -moz-linear-gradient(top, #99b5c6, #7692a3);
+    background: -ms-linear-gradient(top, #99b5c6, #7692a3);
+    background: -o-linear-gradient(top, #99b5c6, #7692a3);
+    background-image: -ms-linear-gradient(top, #99b5c6 0%, #7692a3 100%);
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+    -webkit-box-shadow: rgba(255,255,255,0.4) 0 0px 0, inset rgba(255,255,255,0.4) 0 0px 0;
+    -moz-box-shadow: rgba(255,255,255,0.4) 0 0px 0, inset rgba(255,255,255,0.4) 0 0px 0;
+    box-shadow: rgba(255,255,255,0.4) 0 0px 0, inset rgba(255,255,255,0.4) 0 0px 0;
+    text-shadow: #98a7ad 0 1px 0;
+    color: #172f3a;
+    font-family: helvetica, serif;
+    padding: 8.5px 18px;
+    font-size: 14px;
+    text-decoration: none;
+    vertical-align: middle;
+   }
+.submit-button:hover {
+   border: 1px solid #000000;
+   text-shadow: #172f3a 0 1px 0;
+   background: #7692a3;
+   background: -webkit-gradient(linear, left top, left bottom, from(#99b5c6), to(#7692a3));
+   background: -webkit-linear-gradient(top, #99b5c6, #7692a3);
+   background: -moz-linear-gradient(top, #99b5c6, #7692a3);
+   background: -ms-linear-gradient(top, #99b5c6, #7692a3);
+   background: -o-linear-gradient(top, #99b5c6, #7692a3);
+   background-image: -ms-linear-gradient(top, #99b5c6 0%, #7692a3 100%);
+   color: #fff;
+   }
+.submit-button:active {
+   text-shadow: #31540c 0 1px 0;
+   border: 1px solid #000000;
+   background: #99b5c6;
+   background: -webkit-gradient(linear, left top, left bottom, from(#7692a3), to(#7692a3));
+   background: -webkit-linear-gradient(top, #7692a3, #99b5c6);
+   background: -moz-linear-gradient(top, #7692a3, #99b5c6);
+   background: -ms-linear-gradient(top, #7692a3, #99b5c6);
+   background: -o-linear-gradient(top, #7692a3, #99b5c6);
+   background-image: -ms-linear-gradient(top, #7692a3 0%, #99b5c6 100%);
+   color: #fff;
+}
+.submit-container {
+   margin:5px 0;
+   text-align:center;
+   }
+.search-container {
+   margin:20px 0;
+   text-align:center;
+   }
+</style>
+</head>
+
+<body>
+<div id="container">
+<div id="header">
+<ul>
+<li><a href="#search-tab">SEARCH</a></li>
+<li><a href="#publish-tab">PUBLISH</a></li>
+<li><a href="#aq-tab">FAQ</a></li>
+<li><a href="#about-tab">ABOUT</a></li>
+</ul>
+</div>
+<div id="FAQ-tab">
+<span class="faq-question">Is this product built to last?</span>
+<p class="faq-answer">Our soft, pliable, non-vibrating Real Feel Super Skin® masturbation sleeve is made from a patented, high-quality material designed to replicate the sensation of penetrative sex. The molded sleeve comes housed in an atttractive and sturdy canister that resembles an ordinary flashlight, allowing for simple and discreet storage. It's easy to use and clean, and is 100 percent safe. With proper usage, your Fleshlight will give you a lifetime of enjoyment!</p>
+<span class="faq-question">How big is the Fleshlight?</span>
+<p class="faq-answer">The Fleshlight is approximately 10 inches in length and 3.5 inches in diameter with an insertable length of 9.5 inches and most textures can accommodate men with a girth up to 7 inches. </p>
+<span class="faq-question">Does it vibrate?</span>
+<p class="faq-answer">The Fleshlight does not require batteries or electricity to function. However, the Fleshlight Vibro uses 3 Fleshlight Bullet vibrators to produce intense stimulation!</p>
+<span class="faq-question"> Are Fleshlight sleeves made with latex or plastic or silicone?</span>
+<p class="faq-answer">Fleshlights are made from Real Feel SuperskinNo. The Fleshlight material is a company secret covered by a series of US patents. No other sex products are built with the same feel and durability as the Fleshlight. Words can not explain this one of a kind product!</p>
+<span class="faq-question"> Does the Fleshlight material contain phthalates?</span>
+<p class="faq-answer">Phthalates are defined as "any of various salts or esters of phthalic acid used especially as plasticizers and in solvents." There is quite a bit of controversy surrounding the use of phthalates in sex toys but Interactive Life Forms, Inc. is pleased to assure it's customers that the Fleshlight material DOES NOT CONTAIN phthalates.</p>
+<span class="faq-question">How do I use the Fleshlight?</span>
+<p class="faq-answer">Warm your Fleshlight sleeve by removing it from the case and running warm water through the sleeve for about 5 minutes Do NOT boil or microwave your sleeve! Shake off the water and re-insert the sleeve into the Fleshlight case, adjust the tightness of the cap at the bottom to control the suction, and finish by applying a liberal amount of lubricant to the orifice and yourself. If the Fleshlight still feels too cold to you, then next time try warming the lube in the sink/tub at the same time as the sleeve. The Fleshlight is now ready for use. For more suggestions check out the Discussion Board.</p>
+</p>
+</div>
+<div id="footer">
+THIS IS THE FOOTER WHERE YOU WILL PLACE ALL OF YOUR DONATION ADDRESSES AND ANYTHING YOU'D LIKE
+</div>
+</div>
+</body>
+</html>
