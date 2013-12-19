@@ -5,27 +5,34 @@
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,800,300,600,700' rel='stylesheet' type='text/css'>
 <title>Linky McLinkerson</title>
 <style type="text/css">
+/* This is my body - there are many others like it but this one is mine*/
+
 body {
 	padding: 0px;
 	margin: 0px;
-	background-image:url('bgnoise.png');
+	background-image:url('../../assets/images/bgnoise.png');
 	background-color: #9bb7c8;
 }
+
+/*The Plate on Which the World Sits*/
 
 #container {
 	width: 1000px;
 	position: relative;
 	margin: 0 auto;
-	background-image:url('bgnoise.png');
+	background-image:url('../../assets/images/bgnoise.png');
 	background-color: #e8edf2;
-	-webkit-box-shadow: 0 10px 45px 0 rgba(15,15,15,0.1);
-	box-shadow: 0 10px 45px 0 rgba(15,15,15,0.1);
+	-webkit-box-shadow: 0 10px 45px 0 rgba(15,15,15,0.2);
+	box-shadow: 0 10px 45px 0 rgba(15,15,15,0.2);
 }
+
+/*Header Menu CSS*/
+
 #header {
 	width: 100%;
 	height: 37px;
 	position: relative;
-	background-image:url('bgnoise.png');
+	background-image:url('../../assets/images/bgnoise.png');
 	background-color: #d9dee2;
 	-webkit-box-shadow: 0 10px 45px 0 rgba(15,15,15,0.2);
 	box-shadow: 0 10px 45px 0 rgba(15,15,15,0.2);
@@ -52,6 +59,8 @@ body {
 	padding-right: 25px;
 }
 
+/*Body Div Tab Content CSS*/
+
 #search-tab {
 	height: 600px;
 	margin-top: 10px;
@@ -60,6 +69,23 @@ body {
 	margin-bottom: 10px;
 	
 }
+
+#search-tab .descriptionfont {
+	font-family: "Open Sans", sans-serif;
+	font-color: #172f3a;
+	text-align: justify;
+	text-justify: newspaper;
+	margin: 0 auto;
+	width: 800px;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+    letter-spacing: 0.034em;
+    word-spacing: 0.03em;
+}
+
+/*The Littlest Footer*/
+
 #footer {
    position:absolute;
    bottom:0;
@@ -79,31 +105,43 @@ body {
   
 }
 
-.descriptionfont {
+/*FAQ Page CSS*/
+
+.faq-question {
 	font-family: "Open Sans", sans-serif;
-	text-align: justify;
-	text-justify: newspaper;
-	text-align-last: center;
-	margin: 0 auto;
-	width: 800px;
-   font-weight: 700;
-   font-size: 20px;
-   line-height: 24px;
-   font-color: #172f3a;
-   letter-spacing: 0.034em;
-   word-spacing: 0.03em;
+	text-align: left;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 18px;
+    font-color: #172f3a;
+    letter-spacing: 0.034em;
+    word-spacing: 0.03em;
 }
+.faq-answer {
+	font-family: "Open Sans", sans-serif;
+	text-align: left;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 18px;
+    font-color: #172f3a;
+    letter-spacing: 0.034em;
+    word-spacing: 0.03em;
+}
+.faq p{text-indent:3em;text-align:justify;}
+
+/*Search Page Form CSS*/
+
 .form-field {
 	font-family: "Open Sans", sans-serif;
 	font-weight: 400;
 	font-size: 20px;
 	letter-spacing: 0.054em;
-   word-spacing: 0.03em;
-   border: 1px solid #000;
-   background: #3e5d6b;
-   color: #f1f1f1;
-   padding:8px;
-   width: 480px;
+    word-spacing: 0.03em;
+    border: 1px solid #000;
+    background: #3e5d6b;
+    color: #f1f1f1;
+    padding:8px;
+    width: 480px;
 }
 .submit-button {
 	font-family: "Open Sans", sans-serif;
@@ -111,28 +149,28 @@ body {
 	font-size: 20px;
 	letter-spacing: 0.054em;
 	width: 150px;
-   word-spacing: 0.03em;
-   border: 1px solid #000000;
-   background: #7692a3;
-   background: -webkit-gradient(linear, left top, left bottom, from(#99b5c6), to(#7692a3));
-   background: -webkit-linear-gradient(top, #99b5c6, #7692a3);
-   background: -moz-linear-gradient(top, #99b5c6, #7692a3);
-   background: -ms-linear-gradient(top, #99b5c6, #7692a3);
-   background: -o-linear-gradient(top, #99b5c6, #7692a3);
-   background-image: -ms-linear-gradient(top, #99b5c6 0%, #7692a3 100%);
-   -webkit-border-radius: 0px;
-   -moz-border-radius: 0px;
-   border-radius: 0px;
-   -webkit-box-shadow: rgba(255,255,255,0.4) 0 0px 0, inset rgba(255,255,255,0.4) 0 0px 0;
-   -moz-box-shadow: rgba(255,255,255,0.4) 0 0px 0, inset rgba(255,255,255,0.4) 0 0px 0;
-   box-shadow: rgba(255,255,255,0.4) 0 0px 0, inset rgba(255,255,255,0.4) 0 0px 0;
-   text-shadow: #98a7ad 0 1px 0;
-   color: #172f3a;
-   font-family: helvetica, serif;
-   padding: 8.5px 18px;
-   font-size: 14px;
-   text-decoration: none;
-   vertical-align: middle;
+    word-spacing: 0.03em;
+    border: 1px solid #000000;
+    background: #7692a3;
+    background: -webkit-gradient(linear, left top, left bottom, from(#99b5c6), to(#7692a3));
+    background: -webkit-linear-gradient(top, #99b5c6, #7692a3);
+    background: -moz-linear-gradient(top, #99b5c6, #7692a3);
+    background: -ms-linear-gradient(top, #99b5c6, #7692a3);
+    background: -o-linear-gradient(top, #99b5c6, #7692a3);
+    background-image: -ms-linear-gradient(top, #99b5c6 0%, #7692a3 100%);
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+    -webkit-box-shadow: rgba(255,255,255,0.4) 0 0px 0, inset rgba(255,255,255,0.4) 0 0px 0;
+    -moz-box-shadow: rgba(255,255,255,0.4) 0 0px 0, inset rgba(255,255,255,0.4) 0 0px 0;
+    box-shadow: rgba(255,255,255,0.4) 0 0px 0, inset rgba(255,255,255,0.4) 0 0px 0;
+    text-shadow: #98a7ad 0 1px 0;
+    color: #172f3a;
+    font-family: helvetica, serif;
+    padding: 8.5px 18px;
+    font-size: 14px;
+    text-decoration: none;
+    vertical-align: middle;
    }
 .submit-button:hover {
    border: 1px solid #000000;
@@ -180,7 +218,8 @@ body {
 </ul>
 </div>
 <div id="search-tab">
-<center><img src="linklogolrg.png" /></center>
+<br />
+<center><img src="../../assets/images/linklogolrg.png" /></center>
 <br />
 <div class="descriptionfont">This is the space you will write a brief description about what Link is and what it does and where it comes from and all that other jazz. I am typing things to make it longer but I don't really think.
 </div>
