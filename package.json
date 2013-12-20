@@ -8,10 +8,11 @@
     "sails-disk": "~0.9.0",
     "ejs": "0.8.4",
     "optimist": "0.3.4",
-    "blockchain-link": "~0.0.8",
+    "blockchain-link": "0.0.13",
     "bitcoin": "~2.0.0",
     "levelup": "~0.18.2",
-    "leveldown": "~0.10.2"
+    "leveldown": "~0.10.2",
+    "jquery-ui": "git://github.com/jquery/jquery-ui.git"
   },
   "scripts": {
     "start": "node app.js",

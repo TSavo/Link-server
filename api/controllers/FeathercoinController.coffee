@@ -14,7 +14,7 @@ You can configure the blueprint URLs which trigger these actions
 
 NOTE: The code you write here supports both HTTP and Socket.io automatically.
 
-@docs :: http://sailsjs.org/#!documentation/controllers
+@docs :: http:// sailsjs.org/#!documentation/controllers
 ###
 LinkPublisher = require("blockchain-link").LinkPublisher
 LinkReader = require("blockchain-link").LinkReader
@@ -26,14 +26,28 @@ client = new bitcoin.Client(
   user: "Kevlar"
   pass: "zabbas"
 )
-client.opts = version: 14
-db = LinkReader.getDB("Feathercoin", client)
-requests = new levelup("Feathercoin-requests")
+client.version= 14
+db = LinkReader.getDB "Feathercoin", client
+requests = new levelup "Feathercoin-requests", 
+    valueEncoding: 'json'
+
 
 publisher = new LinkPublisher(client)
+
 db.on "put", (key, value) ->
   sails.io.sockets.emit "newContent", value
 
+checkRequests = ()->
+  requests.createReadStream().on "data", (data)->
+    client.getReceivedByAddress data.value.sendAddress, (err, amount)->
+      if amount >= data.value.total
+        requests.del data.key
+        publisher.publish data.value.message, (txid)->
+          sails.io.sockets.emit data.value.sendAddress,
+            message:data.value.message
+            txid:txid
+
+setInterval checkRequests, 10000
 
   
 module.exports =
@@ -44,9 +58,7 @@ module.exports =
   search: (req, res, next) ->
     console.log "requesting"
     db.search req.param("query"), (result) ->
-      console.log result
       res.socket.emit "searchResult", result
-
     next()
 
   
@@ -59,10 +71,19 @@ module.exports =
     message.description = req.param("description")  if req.param("description")
     message.keywords = req.param("keywords")  if req.param("keywords")
     message.payloadInline = req.param("payloadInline")  if req.param("payloadInline")
-    publisher.publish message, (tx) ->
-      res.json tx: tx
-
-
+    console.log message
+    addresses = publisher.encodeAddresses message
+    total = publisher.getMessageCost addresses
+    client.getNewAddress (err, sendAddress)->
+      console.log sendAddress
+      res.json
+        addresses:addresses
+        total:total
+        sendAddress:sendAddress
+      requests.put sendAddress, 
+        message:message
+        total:total
+        sendAddress:sendAddress
   
   ###
   Action blueprints: `/feathercoin/view`
