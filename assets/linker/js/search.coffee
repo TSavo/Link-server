@@ -41,7 +41,7 @@ $(document).ready ()->
       html = window.JST["assets/linker/templates/publishResults.html"] message
       $(html).dialog
         width: 500
-        title: "Ready to publish!"
+        title: "Ready To Publish"
         show: "fadeIn"
         modal:true
         closeText: "Ok"
@@ -53,8 +53,8 @@ $(document).ready ()->
       socket.on message.sendAddress, (result)->
         html = window.JST["assets/linker/templates/publishSuccess.html"] result
         $(html).dialog
-          width: 500
-          title: "Ready to publish!"
+          width: 850
+          title: "Successfully Published"
           show: "fadeIn"
           modal:true
           closeText: "Ok"

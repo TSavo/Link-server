@@ -41,7 +41,7 @@ checkRequests = ()->
   requests.createReadStream().on "data", (data)->
     client.getReceivedByAddress data.value.sendAddress, (err, amount)->
       console.log amount, ",", data.value.total
-      if amount.toFixed(8) >= data.value.total.toFixed(8)
+      if parseFloat(parseFloat(amount).toFixed(8)) >= parseFloat(data.value.total).toFixed(8)
         requests.del data.key
         publisher.publish data.value.message, (txid)->
           sails.io.sockets.emit data.value.sendAddress,
@@ -78,12 +78,12 @@ module.exports =
       console.log sendAddress
       res.json
         addresses:addresses
-        total:total
+        total:parseFloat(total)
         sendAddress:sendAddress
         message:message
       requests.put sendAddress, 
         message:message
-        total:total
+        total:parseFloat(total)
         sendAddress:sendAddress
   
   ###
