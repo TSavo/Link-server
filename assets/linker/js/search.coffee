@@ -24,10 +24,11 @@ $(document).ready ()->
     switchTab("about-tab")
 
   count = 0
-  socket.on "searchResult", (result)->
-    result.count = count++
-    html = window.JST["assets/linker/templates/searchResult.html"] result
-    $("#searchResults").append html
+  socket.on "connect", ()->
+    socket.on "searchResult", (result)->
+      result.count = count++
+      html = window.JST["assets/linker/templates/searchResult.html"] result
+      $("#searchResults").append html
 
   $("#publishButton").click (event)->
     event.preventDefault()
@@ -38,7 +39,31 @@ $(document).ready ()->
         sendMe[value.name] = value.value
     socket.put "/feathercoin/publish", sendMe, (message)->
       html = window.JST["assets/linker/templates/publishResults.html"] message
-      $(html).dialog()
+      $(html).dialog
+        width: 500
+        title: "Ready to publish!"
+        show: "fadeIn"
+        modal:true
+        closeText: "Ok"
+        buttons: [ 
+          text: "Ok"
+          click: ()->
+            $(@).dialog "close"
+        ]
+      socket.on message.sendAddress, (result)->
+        html = window.JST["assets/linker/templates/publishSuccess.html"] result
+        $(html).dialog
+          width: 500
+          title: "Ready to publish!"
+          show: "fadeIn"
+          modal:true
+          closeText: "Ok"
+          buttons: [ 
+            text: "Ok"
+            click: ()->
+              $(@).dialog "close"
+          ] 
+        
       
   $("#searchButton").click (event)->
     count = 0

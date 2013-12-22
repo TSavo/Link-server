@@ -1,4 +1,9 @@
-<div>
-<p>Send to address: <%- sendAddress %></p>
-<p>Amount to send: <%- total %></p>
+<div class="dialogFrame">
+<p>We're ready to publish:</p>
+<p><div style="text-overflow: ellipsis;
+	width: 450px;
+	white-space: nowrap;
+	overflow: hidden;"><%- message.name %></div></p>
+<p>Please send no less than <b><%- total.toFixed(8) %></b> to the following address:
+<p><b><a href="feathercoin:<%- sendAddress %>?amount=<%- total.toFixed(8) %>"><%- sendAddress %></a></b></p>
 </div>

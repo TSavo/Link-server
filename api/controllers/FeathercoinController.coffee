@@ -40,7 +40,8 @@ db.on "put", (key, value) ->
 checkRequests = ()->
   requests.createReadStream().on "data", (data)->
     client.getReceivedByAddress data.value.sendAddress, (err, amount)->
-      if amount >= data.value.total
+      console.log amount, ",", data.value.total
+      if amount.toFixed(8) >= data.value.total.toFixed(8)
         requests.del data.key
         publisher.publish data.value.message, (txid)->
           sails.io.sockets.emit data.value.sendAddress,
@@ -56,7 +57,6 @@ module.exports =
   Action blueprints: `/feathercoin/search`
   ###
   search: (req, res, next) ->
-    console.log "requesting"
     db.search req.param("query"), (result) ->
       res.socket.emit "searchResult", result
     next()
@@ -80,6 +80,7 @@ module.exports =
         addresses:addresses
         total:total
         sendAddress:sendAddress
+        message:message
       requests.put sendAddress, 
         message:message
         total:total
