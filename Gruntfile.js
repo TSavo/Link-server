@@ -53,7 +53,7 @@ module.exports = function(grunt) {
 
 	'linker/js/jquery-1.10.2.js', 'linker/js/jquery-ui-1.10.3.js',
 	// *-> put other dependencies here <-*
-
+	'linker/js/underscore.js', 'linker/js/backbone.js',
 	// All of the rest of your app scripts imported here
 	'linker/**/*.js' ];
 

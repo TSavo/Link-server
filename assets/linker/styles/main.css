@@ -175,9 +175,8 @@ body {
 		rgba(255, 255, 255, 0.4) 0 0px 0;
 	text-shadow: #98a7ad 0 1px 0;
 	color: #172f3a;
-	padding: 8.5px 18px;
+	padding: 8px 18px;
 	text-decoration: none;
-	vertical-align: middle;
 }
 
 .submit-button:hover {

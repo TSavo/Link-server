@@ -26,13 +26,14 @@
  <link rel="stylesheet" href="/linker/styles/ui/jquery.ui.theme.css">
  <link rel="stylesheet" href="/linker/styles/ui/jquery.ui.tooltip.css">
  <!--STYLES END-->
-		<!--SCRIPTS-->
+																				<!--SCRIPTS-->
 <script src="/linker/js/jquery-1.10.2.js"></script>
 <script src="/linker/js/jquery-ui-1.10.3.js"></script>
-<script src="/linker/js/dependencies.js"></script>
+<script src="/linker/js/underscore.js"></script>
+<script src="/linker/js/backbone.js"></script>
 <script src="/linker/js/search.js"></script>
 <!--SCRIPTS END-->
-		<!--TEMPLATES-->
+																				<!--TEMPLATES-->
 <script type="text/javascript" src="/jst.js"></script>
 <!--TEMPLATES END-->
 </head>
@@ -41,10 +42,10 @@
 	<div id="container">
 		<div id="header">
 			<ul>
-				<li><a id="searchTabButton" href="#search-tab">SEARCH</a></li>
-				<li><a id="publishTabButton" href="#publish-tab">PUBLISH</a></li>
-				<li><a id="faqTabButton" href="#faq-tab">FAQ</a></li>
-				<li><a id="aboutTabButton" href="#about-tab">ABOUT</a></li>
+				<li><a id="searchTabButton" href="#search">SEARCH</a></li>
+				<li><a id="publishTabButton" href="#publish">PUBLISH</a></li>
+				<li><a id="faqTabButton" href="#faq">FAQ</a></li>
+				<li><a id="aboutTabButton" href="#about">ABOUT</a></li>
 			</ul>
 		</div>
 
@@ -58,7 +59,7 @@
 					embedding data in blockchains.</div>
 				<br /> <br />
 				<div>
-					<form>
+					<form id="searchForm">
 						<div class="search-container">
 							<input class="form-field" type="text" name="searchstring"
 								id="searchQuery"><br />
@@ -71,7 +72,12 @@
 				</div>
 			</div>
 			<div id="searchResultsBody" class="hidden">
-				<div id="searchResults">results</div>
+				<form id="innerSearchForm">
+					<input class="form-field" type="text" name="searchstring"
+						id="innerSearchQuery"><input class="submit-button"
+						type="submit" id="innerSearchButton" name="search" value="Search">
+				</form>
+				<div id="searchResults"></div>
 			</div>
 		</div>
 		<div id="publish-tab" class="hidden">
@@ -81,19 +87,22 @@
 					magical and awe-inspiring. This is an optional class in case you
 					wish to place some text below the also optional title [above].</p>
 				<form id="publishForm" name="form" method="post">
-					 <label>Magnet link
-						<span class="hint">magnet:?xt=urn:btih:...&dn=...</span>
-					</label><input type="text" name="payloadInline" id="payloadInline" /> 
-<!--
+					<label>Magnet link <span class="hint">magnet:?xt=urn:btih:...&dn=...</span>
+					</label><input type="text" name="payloadInline" id="payloadInline" />
+					<!--
 					<label>File <span class="hint">Select File To Upload</span>
 					</label>
-					 <input type="file" name="file" id="file" />--> <label>Name <span
-						class="hint">Enter the name of the torrent</span>
+					 <input type="file" name="file" id="file" />-->
+					<label>Name <span class="hint">Enter the name of the
+							torrent</span>
 					</label> <input type="text" name="name" id="name" /> <label>Description
 						<span class="hint">Describe the torrent</span>
-					</label> <textarea name="description" id="description"></textarea> <label>Keywords
-						<span class="hint">Seperated by comma</span>
-					</label> <input type="text" name="keywords" id="keywords" /> <!-- <label>URI
+					</label>
+					<textarea name="description" id="description"></textarea>
+					<label>Keywords <span class="hint">Seperated by
+							comma</span>
+					</label> <input type="text" name="keywords" id="keywords" />
+					<!-- <label>URI
 						<span class="hint">Paste your URI</span>
 					</label> <input type="text" name="uri" id="uri" />-->
 					<!--  <label>Creation

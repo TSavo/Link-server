@@ -1,29 +1,45 @@
 currentTab = "search-tab"
-	
+count = 0
 switchTab = (tab)->
   $("#" + currentTab).fadeOut ()->
     $("#" + tab).removeClass("hidden").fadeIn()
     currentTab = tab
-  
-$(document).ready ()->
-
-  $("#searchTabButton").click (e)->
-    e.preventDefault()
-    console.log "ok"
-    switchTab("search-tab")
-
-  $("#publishTabButton").click (e)->
-    console.log "ok"
-    e.preventDefault()
+Router = Backbone.Router.extend 
+  routes:
+    "search":"search"
+    "search/*query":"search"
+    "publish":"publish"
+    "faq":"faq"
+    "about":"about"
+    "*default":"search"
+  search:(query)->
+    console.log query
+    switchTab("search-tab") unless currentTab == "search-tab"
+    if !query?
+      if $("#searchResultsBody").is(":visible")
+        $("#searchResultsBody").fadeOut ()->
+          $("#searchBody").fadeIn()
+    else
+      $("#searchQuery").val(query)
+      $("#innerSearchQuery").val(query)
+      count = 0
+      $("#searchResults").empty()
+      socket.get "/feathercoin/search?query=" + query
+      $("#searchBody").fadeOut ()->
+        $("#searchResultsBody").removeClass("hidden").fadeIn()
+  publish:()->
     switchTab("publish-tab")
-  $("#faqTabButton").click (e)->
-    e.preventDefault()
+  faq:()->
     switchTab("faq-tab")
-  $("#aboutTabButton").click (e)->
-    e.preventDefault()
+  about:()->
     switchTab("about-tab")
 
+$(document).ready ()->
   count = 0
+  router = new Router();
+  Backbone.history.start()
+ 
+
   socket.on "connect", ()->
     socket.on "searchResult", (result)->
       result.count = count++
@@ -64,13 +80,18 @@ $(document).ready ()->
               $(@).dialog "close"
           ] 
         
-      
+  $("searchForm").submit (event)->
+    window.location = "#search/" + $("#searchQuery").val()
+    event.preventDefault()
+    return false
+    
   $("#searchButton").click (event)->
     count = 0
-    $("#searchResults").empty()
-    socket.get "/feathercoin/search?query=" + $("#searchQuery").val()
-    $("#searchBody").fadeOut ()->
-      $("#searchResultsBody").removeClass("hidden").fadeIn
-        
+    window.location = "#search/" + $("#searchQuery").val()
+    event.preventDefault()
+    return false
+  $("#innerSearchButton").click (event)->
+    count = 0
+    window.location = "#search/" + $("#innerSearchQuery").val()
     event.preventDefault()
     return false
