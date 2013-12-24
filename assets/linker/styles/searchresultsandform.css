@@ -1,0 +1,88 @@
+@charset "UTF-8";
+/* Search Results Page Form - For when it loads up... */
+
+#searchResultForm input {
+	float: left;
+	font-family: "Open Sans", sans-serif;
+	font-weight: 400;
+	font-size: 12px;
+	line-height: 13px;
+	letter-spacing: 0.054em;
+    word-spacing: 0.03em;
+    border: 1px solid #000;
+    background: #3e5d6b;
+    color: #f1f1f1;
+    padding:3px;
+    width: 250px;
+	margin:2px 0 20px 10px;
+	vertical-align:middle;
+}
+
+#searchResultForm .submit-button {
+	font-family: "Open Sans", sans-serif;
+	font-weight: 400;
+	font-size: 12px;
+	letter-spacing: 0.054em;
+	width: 100px;
+    word-spacing: 0.03em;
+    border: 1px solid #000000;
+    background: #7692a3;
+    background: -webkit-gradient(linear, left top, left bottom, from(#99b5c6), to(#7692a3));
+    background: -webkit-linear-gradient(top, #99b5c6, #7692a3);
+    background: -moz-linear-gradient(top, #99b5c6, #7692a3);
+    background: -ms-linear-gradient(top, #99b5c6, #7692a3);
+    background: -o-linear-gradient(top, #99b5c6, #7692a3);
+    background-image: -ms-linear-gradient(top, #99b5c6 0%, #7692a3 100%);
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+    -webkit-box-shadow: rgba(255,255,255,0.4) 0 0px 0, inset rgba(255,255,255,0.4) 0 0px 0;
+    -moz-box-shadow: rgba(255,255,255,0.4) 0 0px 0, inset rgba(255,255,255,0.4) 0 0px 0;
+    box-shadow: rgba(255,255,255,0.4) 0 0px 0, inset rgba(255,255,255,0.4) 0 0px 0;
+    text-shadow: #98a7ad 0 1px 0;
+    color: #172f3a;
+    padding: 5px 12px;
+    text-decoration: none;
+    vertical-align: middle;
+   }
+.submit-button:hover {
+   border: 1px solid #000000;
+   text-shadow: #172f3a 0 1px 0;
+   background: #7692a3;
+   background: -webkit-gradient(linear, left top, left bottom, from(#99b5c6), to(#7692a3));
+   background: -webkit-linear-gradient(top, #99b5c6, #7692a3);
+   background: -moz-linear-gradient(top, #99b5c6, #7692a3);
+   background: -ms-linear-gradient(top, #99b5c6, #7692a3);
+   background: -o-linear-gradient(top, #99b5c6, #7692a3);
+   background-image: -ms-linear-gradient(top, #99b5c6 0%, #7692a3 100%);
+   color: #fff;
+   }
+.submit-button:active {
+   text-shadow: #31540c 0 1px 0;
+   border: 1px solid #000000;
+   background: #99b5c6;
+   background: -webkit-gradient(linear, left top, left bottom, from(#7692a3), to(#7692a3));
+   background: -webkit-linear-gradient(top, #7692a3, #99b5c6);
+   background: -moz-linear-gradient(top, #7692a3, #99b5c6);
+   background: -ms-linear-gradient(top, #7692a3, #99b5c6);
+   background: -o-linear-gradient(top, #7692a3, #99b5c6);
+   background-image: -ms-linear-gradient(top, #7692a3 0%, #99b5c6 100%);
+   color: #fff;
+}
+
+/* Search Results Failover Text CSS */
+#searchResults .font {
+	font-family: "Open Sans", sans-serif;
+	text-align: left;
+	font-weight: 600;
+	font-size: 11px;
+	line-height: 12px;
+	font-color: #172f3a;
+	letter-spacing: 0.034em;
+	word-spacing: 0.03em;
+	text-transform: uppercase;
+}
+#searchResults a:link {text-decoration:none; color:#4d7080}
+#searchResults a:visited {text-decoration:none; color:#3e5d6b}
+#searchResults a:hover {text-decoration:none; color:#587c8c}
+#searchResults a:active {text-decoration:none; color:#4d7080}
