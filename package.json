@@ -1,6 +1,6 @@
 {
   "name": "blockchain-link-server",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "A Link web interface",
   "dependencies": {
     "sails": "0.9.7",
