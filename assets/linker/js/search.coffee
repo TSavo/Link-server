@@ -49,6 +49,7 @@ $(document).ready ()->
   $("#publishButton").click (event)->
     event.preventDefault()
     formData = $("#publishForm").serializeArray()
+    console.log JSON.serialize formData
     sendMe = {}
     for key,value of formData
       if value.value
