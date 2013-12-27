@@ -57,7 +57,93 @@ checkRequests = ()->
 
 setInterval checkRequests, 10000
 
-  
+goals =[
+  name:"Enhanced Search Results / Individual Results Page"
+  address:""
+  goal:250
+,
+  name:"Support for Uploading .torrent Files"
+  address:""
+  goal:250
+,
+  name:"Live Data Feed of Freshly Published Data"
+  address:""
+  goal:100
+,
+  name:"Search and Publish REST API"
+  address:""
+  goal:100
+,
+  name:"Streaming API"
+  address:""
+  goal:50
+,
+  name:"RSS Feeds"
+  address:""
+  goal:100
+,
+  name:"Tag Cloud"
+  address:""
+  goal:100
+,
+  name:"Bitcoin Support (Publishing and Searching)"
+  address:""
+  goal:250
+,
+  name:"Litecoin Support (Publishing and Searching)"
+  address:""
+  goal:250
+,
+  name:"Dogecoin Support (Publishing and Searching)"
+  address:""
+  goal:250
+,
+  name:"Catcoin Support (Publishing and Searching)"
+  address:""
+  goal:250
+,
+  name:"Worldcoin Support (Publishing and Searching)"
+  address:""
+  goal:250
+,
+  name:"Phoenixcoin Support (Publishing and Searching)"
+  address:""
+  goal:250
+,  
+  name:"Digitalcoin Support (Publishing and Searching)"
+  address:""
+  goal:250
+,
+  name:"Infinitecoin Support (Publishing and Searching)"
+  address:""
+  goal:250
+,
+  name:"Twitter Tip Bot (Unrelated to Link)"
+  address:""
+  goal:2500
+,
+  name:"Pizza and Beer for the Developer of Link"
+  address:""
+  goal 50
+]
+          
+getBalance = (address, callback)->
+  client.getBalance address, (err, amount)->
+    return console.log err if err?
+    callback amount
+
+updateGoals = ()->
+ for x in goals
+   do (x)->
+     getBalance goals[x].address, (amount)->
+       goals[x].balance = amount
+     
+broadcastGoals = (goals)->
+  sails.io.sockets.emit "goals", goals
+
+setInterval updateGoals, 15000
+setInterval broadcastGoals, 30000
+
 module.exports =
   
   ###
@@ -105,7 +191,7 @@ module.exports =
   keywords: (req, res) ->
     res.json glossary.extract req.param "query"
 
-  
+    
   ###
   Overrides for the settings in `config/controllers.js` (specific to
   FeathercoinController)
