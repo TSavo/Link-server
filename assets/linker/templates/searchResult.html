@@ -1,1 +1,1 @@
-<div class="name"><%- count+1 %>.&nbsp;<a href="<%- payloadInline %>"><%- name %></a> (<%- keywords %>)</div>
+<div class="name"><%- count+1 %>.&nbsp;<a href="<%- escapeHtml(payloadInline) %>"><%- escapeHtml(name) %></a> (<%- escapeHtml(keywords) %>)</div>
