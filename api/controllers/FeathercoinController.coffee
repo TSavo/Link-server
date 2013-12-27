@@ -16,6 +16,13 @@ NOTE: The code you write here supports both HTTP and Socket.io automatically.
 
 @docs :: http:// sailsjs.org/#!documentation/controllers
 ###
+
+
+glossary = require("glossary")
+  blacklist: ["x264", "x", "x264-FoV", "-FoV"]
+  collapse:true
+
+
 LinkPublisher = require("blockchain-link").LinkPublisher
 LinkReader = require("blockchain-link").LinkReader
 levelup = require("levelup")
@@ -75,6 +82,7 @@ module.exports =
     addresses = publisher.encodeAddresses message
     total = publisher.getMessageCost addresses
     client.getNewAddress (err, sendAddress)->
+      return console.log(err) if err?
       console.log sendAddress
       res.json
         addresses:addresses
@@ -93,6 +101,9 @@ module.exports =
     
     # Send a JSON response
     res.view "home/index"
+  
+  keywords: (req, res) ->
+    res.json glossary.extract req.param "query"
 
   
   ###
