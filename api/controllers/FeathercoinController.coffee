@@ -46,8 +46,10 @@ db.on "put", (key, value) ->
 
 checkRequests = ()->
   requests.createReadStream().on "data", (data)->
+    console.out data
     return requests.del data.key if not data.createdOn? or data.createdOn + 86400000 < new Date().getTime()
     client.getReceivedByAddress data.value.sendAddress, (err, amount)->
+      console.out  parseFloat(parseFloat(amount).toFixed(8)), ",", parseFloat(parseFloat(data.value.total).toFixed(8))
       if parseFloat(parseFloat(amount).toFixed(8)) >= parseFloat(parseFloat(data.value.total).toFixed(8))
         requests.del data.key
         publisher.publish data.value.message, (txid)->
