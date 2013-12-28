@@ -63,6 +63,8 @@ goals =[
   goal:250
 ,
   name:"Browse entire index"
+  address:"6vWRiJa6aQGAfy39ZDQG1U4nXupCJ3evzU"
+  goal:250
 ,
   name:"Support for Uploading .torrent Files"
   address:"6zNNPA8ibHDW7BF6ZQQppEGShiXSBRA8sG"
