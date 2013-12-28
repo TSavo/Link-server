@@ -86,6 +86,10 @@ goals =[
   address:""
   goal:100
 ,
+  name:"Upvoting/Downvoting Content (via the blockchain)"
+  address:""
+  goal:500
+,
   name:"Bitcoin Support (Publishing and Searching)"
   address:""
   goal:250
