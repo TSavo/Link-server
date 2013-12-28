@@ -48,7 +48,6 @@ checkRequests = ()->
   requests.createReadStream().on "data", (data)->
     return requests.del data.key if not data.createdOn? or data.createdOn + 86400000 < new Date().getTime()
     client.getReceivedByAddress data.value.sendAddress, (err, amount)->
-      console.log amount, ",", data.value.total
       if parseFloat(parseFloat(amount).toFixed(8)) >= parseFloat(parseFloat(data.value.total).toFixed(8))
         requests.del data.key
         publisher.publish data.value.message, (txid)->
@@ -62,6 +61,8 @@ goals =[
   name:"Enhanced&nbsp;Search&nbsp;Results&nbsp;/&nbsp;Individual&nbsp;Results&nbsp;Page"
   address:"6pUfvyapR9LRc2ZkuqQ6bpEXh2SWqURuNf"
   goal:250
+,
+  name:"Browse entire index"
 ,
   name:"Support for Uploading .torrent Files"
   address:"6zNNPA8ibHDW7BF6ZQQppEGShiXSBRA8sG"
@@ -144,7 +145,6 @@ updateGoals = ()->
        goals[key].balance = amount
      
 broadcastGoals = ()->
-  console.log goals
   sails.io.sockets.emit "goals", goals
 
 setInterval updateGoals, 15000
