@@ -58,7 +58,7 @@ checkRequests = ()->
 setInterval checkRequests, 10000
 
 goals =[
-  name:"Enhanced Search Results / Individual Results Page"
+  name:"Enhanced&nbsp;Search&nbsp;Results&nbsp;/&nbsp;Individual&nbsp;Results&nbsp;Page"
   address:"6pUfvyapR9LRc2ZkuqQ6bpEXh2SWqURuNf"
   goal:250
 ,
@@ -86,7 +86,7 @@ goals =[
   address:"6fpVwBM6MDzyEk6pWG6gBP279mrweFHJfA"
   goal:100
 ,
-  name:"Upvoting/Downvoting Content (via the blockchain)"
+  name:"Upvoting/Downvoting&nbsp;Content&nbsp;(via&nbsp;the&nbsp;blockchain)"
   address:"6sjSzGikzrYnoTGE5DwVqWfGnBHhsfitYY"
   goal:500
 ,
@@ -128,7 +128,7 @@ goals =[
 ,
   name:"Pizza and Beer for the Developer of Link"
   address:"72A5GTNfUR18U8VZGK4UaJHSi2u1i5JZie"
-  goal:50
+  goal:100
 ]
 
 getBalance = (address, callback)->

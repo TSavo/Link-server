@@ -83,6 +83,8 @@ $(document).ready ()->
   router = new Router();
   Backbone.history.start()
   socket.on "connect", ()->
+    socket.removeAllListeners "searchResult"
+    socket.removeAllListeners "goals"
     socket.on "searchResult", (result)->
       result.count = count++
       html = window.JST["assets/linker/templates/searchResult.html"] result

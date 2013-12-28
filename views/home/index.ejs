@@ -5,36 +5,37 @@
 <link
 	href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,800,300,600,700'
 	rel='stylesheet' type='text/css'>
-	<title>Link</title> <!--STYLES-->
- <link rel="stylesheet" href="/linker/styles/main.css">
- <link rel="stylesheet" href="/linker/styles/searchresultsandform.css">
- <link rel="stylesheet" href="/linker/styles/ui/jquery-ui.css">
- <link rel="stylesheet" href="/linker/styles/ui/jquery.ui.accordion.css">
- <link rel="stylesheet" href="/linker/styles/ui/jquery.ui.all.css">
- <link rel="stylesheet" href="/linker/styles/ui/jquery.ui.autocomplete.css">
- <link rel="stylesheet" href="/linker/styles/ui/jquery.ui.base.css">
- <link rel="stylesheet" href="/linker/styles/ui/jquery.ui.button.css">
- <link rel="stylesheet" href="/linker/styles/ui/jquery.ui.core.css">
- <link rel="stylesheet" href="/linker/styles/ui/jquery.ui.datepicker.css">
- <link rel="stylesheet" href="/linker/styles/ui/jquery.ui.dialog.css">
- <link rel="stylesheet" href="/linker/styles/ui/jquery.ui.menu.css">
- <link rel="stylesheet" href="/linker/styles/ui/jquery.ui.progressbar.css">
- <link rel="stylesheet" href="/linker/styles/ui/jquery.ui.resizable.css">
- <link rel="stylesheet" href="/linker/styles/ui/jquery.ui.selectable.css">
- <link rel="stylesheet" href="/linker/styles/ui/jquery.ui.slider.css">
- <link rel="stylesheet" href="/linker/styles/ui/jquery.ui.spinner.css">
- <link rel="stylesheet" href="/linker/styles/ui/jquery.ui.tabs.css">
- <link rel="stylesheet" href="/linker/styles/ui/jquery.ui.theme.css">
- <link rel="stylesheet" href="/linker/styles/ui/jquery.ui.tooltip.css">
- <!--STYLES END-->
-																				<!--SCRIPTS-->
+	<title>Link</title>
+	<!--STYLES-->
+<link rel="stylesheet" href="/linker/styles/main.css">
+<link rel="stylesheet" href="/linker/styles/searchresultsandform.css">
+<link rel="stylesheet" href="/linker/styles/ui/jquery-ui.css">
+<link rel="stylesheet" href="/linker/styles/ui/jquery.ui.accordion.css">
+<link rel="stylesheet" href="/linker/styles/ui/jquery.ui.all.css">
+<link rel="stylesheet" href="/linker/styles/ui/jquery.ui.autocomplete.css">
+<link rel="stylesheet" href="/linker/styles/ui/jquery.ui.base.css">
+<link rel="stylesheet" href="/linker/styles/ui/jquery.ui.button.css">
+<link rel="stylesheet" href="/linker/styles/ui/jquery.ui.core.css">
+<link rel="stylesheet" href="/linker/styles/ui/jquery.ui.datepicker.css">
+<link rel="stylesheet" href="/linker/styles/ui/jquery.ui.dialog.css">
+<link rel="stylesheet" href="/linker/styles/ui/jquery.ui.menu.css">
+<link rel="stylesheet" href="/linker/styles/ui/jquery.ui.progressbar.css">
+<link rel="stylesheet" href="/linker/styles/ui/jquery.ui.resizable.css">
+<link rel="stylesheet" href="/linker/styles/ui/jquery.ui.selectable.css">
+<link rel="stylesheet" href="/linker/styles/ui/jquery.ui.slider.css">
+<link rel="stylesheet" href="/linker/styles/ui/jquery.ui.spinner.css">
+<link rel="stylesheet" href="/linker/styles/ui/jquery.ui.tabs.css">
+<link rel="stylesheet" href="/linker/styles/ui/jquery.ui.theme.css">
+<link rel="stylesheet" href="/linker/styles/ui/jquery.ui.tooltip.css">
+<!--STYLES END-->
+	<!--SCRIPTS-->
 <script src="/linker/js/jquery-1.10.2.js"></script>
 <script src="/linker/js/jquery-ui-1.10.3.js"></script>
 <script src="/linker/js/underscore.js"></script>
 <script src="/linker/js/backbone.js"></script>
 <script src="/linker/js/search.js"></script>
 <!--SCRIPTS END-->
-																				<!--TEMPLATES-->
+	<!--TEMPLATES-->
 <script type="text/javascript" src="/jst.js"></script>
 <!--TEMPLATES END-->
 </head>
@@ -85,7 +86,10 @@
 		<div id="publish-tab" class="hidden">
 			<div id="formulus" class="publishform">
 				<h1>Submit a Link to the Feathercoin Blockchain</h1>
-				<p>You can use this form to publish data to the Feathercoin blockchain. You'll be prompted with an amount to send to an address. When that send has one confirmation, your data will be published.</p>
+				<p>You can use this form to publish data to the Feathercoin
+					blockchain. You'll be prompted with an amount to send to an
+					address. When that send has one confirmation, your data will be
+					published.</p>
 				<form id="publishForm" name="form" method="post">
 					<label>Magnet link <span class="hint">magnet:?xt=urn:btih:...&dn=...</span>
 					</label><input type="text" name="payloadInline" id="payloadInline" />
@@ -131,49 +135,96 @@
 		<div id="faq-tab" class="hidden">
 			<div>
 				<span class="faq-question">What is Link?</span>
-				<p class="faq-answer">Link is an open source protocol for embedding data in the blockchain of Crypto-currencies.</p>
+				<p class="faq-answer">Link is an open source protocol for
+					embedding data in the blockchain of Crypto-currencies.</p>
 				<span class="faq-question">Why would you want to do that?</span>
-				<p class="faq-answer">Crypto-currencies like Bitcoin have a number of useful properties which Link exploits:</p>
-			    <ul>
-			      <li><p class="faq-answer">The blockchain is built on a peer-to-peer network which makes broadcasting of data far and wide easy to accomplish.</p></li>
-			      <li><p class="faq-answer">The blockchain is verified by all the participants in the network, meaning data embedded within it cannot become corrupted.</p></li>
-			      <li><p class="faq-answer">The blockchain is used as a record of account, so it already has existing utility, meaning it's less likely to be censored.</p></li>
-			      <li><p class="faq-answer">The act of embedding data in the blockchain via the Link protocol requires users to spend their coins, meaning there's a cost associated with publishing.</p></li>
-			    </ul>
-			    
-			    <p class="faq-answer">By building on these foundational properties, Link allows anyone to publish data in a way that is effectively anonymous, and will be very hard to censor, yet easy to find.
-				</p>
+				<p class="faq-answer">Crypto-currencies like Bitcoin have a
+					number of useful properties which Link exploits:</p>
+				<ul>
+					<li><p class="faq-answer">The blockchain is built on a
+							peer-to-peer network which makes broadcasting of data far and
+							wide easy to accomplish.</p></li>
+					<li><p class="faq-answer">The blockchain is verified by
+							all the participants in the network, meaning data embedded within
+							it cannot become corrupted.</p></li>
+					<li><p class="faq-answer">The blockchain is used as a
+							record of account, so it already has existing utility, meaning
+							it's less likely to be censored.</p></li>
+					<li><p class="faq-answer">The act of embedding data in the
+							blockchain via the Link protocol requires users to spend their
+							coins, meaning there's a cost associated with publishing.</p></li>
+				</ul>
+
+				<p class="faq-answer">By building on these foundational
+					properties, Link allows anyone to publish data in a way that is
+					effectively anonymous, and will be very hard to censor, yet easy to
+					find.</p>
 				<span class="faq-question">Does it destroy coins?</span>
-				<p class="faq-answer">Yes. Every publish requires spending to addresses for which the private key isn't known. This causes further deflation of the currency, making the existing coins more valuable.</p>
-				<span class="faq-question">But won't this bloat the blockchain?</span>
-				<p class="faq-answer">While the blockchain will increase in size with every piece of data published, because the coins are being destroyed, they can never move again. This means they will never generate another transaction to increase the size of the blockchain. Any cost in size is paid once and never again, as opposed to when coins transfer ownership and will subsequently generate more transaction. If the blockchain was only used for this purpose, there would be an upper limit on the blockchain size, as opposed to the present assumption that it will grow forever. So while adding data to the blockchain will increase the size of it, it can't possibly increase it more than sending coins around.</p>
+				<p class="faq-answer">Yes. Every publish requires spending to
+					addresses for which the private key isn't known. This causes
+					further deflation of the currency, making the existing coins more
+					valuable.</p>
+				<span class="faq-question">But won't this bloat the
+					blockchain?</span>
+				<p class="faq-answer">While the blockchain will increase in size
+					with every piece of data published, because the coins are being
+					destroyed, they can never move again. This means they will never
+					generate another transaction to increase the size of the
+					blockchain. Any cost in size is paid once and never again, as
+					opposed to when coins transfer ownership and will subsequently
+					generate more transaction. If the blockchain was only used for this
+					purpose, there would be an upper limit on the blockchain size, as
+					opposed to the present assumption that it will grow forever. So
+					while adding data to the blockchain will increase the size of it,
+					it can't possibly increase it more than sending coins around.</p>
 			</div>
 		</div>
 		<div id="about-tab" class="hidden">
-		<p class="faq-answer">The Link Protocol was developed by Travis Savo with a lot of help from the Feathercoin community.</p>
-		<p class="faq-answer">All code is open source, and alternative implementions of the Link Protocol are encouraged.</p>
-		<p class="faq-answer">The Link Protocol specification can be found here: <a href="https://github.com/TSavo/Link/blob/master/README.md">https://github.com/TSavo/Link/blob/master/README.md</a></p>
-		<p class="faq-answer">The Link reference library for Node.JS can be found here: <a href="https://github.com/TSavo/Link">https://github.com/TSavo/Link</a></p>
-		<p class="faq-answer">The Link Web App (what you're using now) can be found here: <a href="https://github.com/TSavo/Link-server">https://github.com/TSavo/Link-server</a></p>
+			<p class="faq-answer">The Link Protocol was developed by Travis
+				Savo with a lot of help from the Feathercoin community, and the undying support of his incredible wife.</p>
+			<p class="faq-answer">All code is open source, and alternative
+				implementions of the Link Protocol are encouraged.</p>
+			<p class="faq-answer">
+				The Link Protocol specification can be found here: <a
+					href="https://github.com/TSavo/Link/blob/master/README.md">https://github.com/TSavo/Link/blob/master/README.md</a>
+			</p>
+			<p class="faq-answer">
+				The Link reference library for Node.JS can be found here: <a
+					href="https://github.com/TSavo/Link">https://github.com/TSavo/Link</a>
+			</p>
+			<p class="faq-answer">
+				The Link Web App (what you're using now) can be found here: <a
+					href="https://github.com/TSavo/Link-server">https://github.com/TSavo/Link-server</a>
+			</p>
 		</div>
 		<div id="future-tab" class="hidden mainArea">
-			<p class="faq-question center">The future is already here — it’s just not very evenly distributed. -<i>William Gibson</i></p>
-			<p class="faq-answer">
-				Link is completely free of fees. All coins requested in publishing are either burned, or go to miners. It's development and hosting is funded by your donations.
+			<p class="faq-question center">
+				The future is already here — it’s just not very evenly distributed.
+				-<i>William Gibson</i>
 			</p>
-			<p class="faq-answer">
-				Instead of just asking you to donate, I figured I'd allow you to vote on what feature you'd most like to see. Of course you can also donate to the pizza and beer fund, which is always appreaciated!
-			</p>
-			
+			<p class="faq-answer">Link is completely free of fees. All coins
+				requested in publishing are either burned, or go to miners. It's
+				development and hosting is funded by your donations.</p>
+			<p class="faq-answer">Instead of just asking you to donate, I
+				figured I'd allow you to vote on what feature you'd most like to
+				see. Of course you can also donate to the pizza and beer fund, which
+				is always appreaciated!</p>
+
 			<table>
-			  <thead>
-			    <tr><th>Feature</th><th>Donation Address (FTC)</th><th>Donated</th><th>Goal</th><th>Status</th></tr>
-			  </thead>
-			  <tbody id="goalBody"></tbody>
+				<thead>
+					<tr>
+						<th>Feature</th>
+						<th>Donation Address (FTC)</th>
+						<th>Donated</th>
+						<th>Goal</th>
+						<th>Status</th>
+					</tr>
+				</thead>
+				<tbody id="goalBody"></tbody>
 			</table>
 
 		</div>
-		<div id="footer"></div>
+		<div id="footer">Fork me! <a href="https://github.com/tsavo/link-server" target="_blank">https://github.com/tsavo/link-server</a></div>
 	</div>
 </body>
 </html>

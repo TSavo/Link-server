@@ -1,19 +1,19 @@
 <% for(var i=0; i<goals.length; i++) {%>
 <tr>
   <td>
-    <%- goals[i].name %>
+    <%= goals[i].name %>
   </td>
   <td>
-    <a target="_blank" href="feathercoin:<%- goals[i].address %>"><%- goals[i].address %></a>
+    <a target="_blank" href="feathercoin:<%= goals[i].address %>"><%= goals[i].address %></a>
   </td>
   <td>
-    <%- goals[i].balance %>
+    <%= goals[i].balance %>
   </td>
   <td>
-    <%- goals[i].goal %>
+    <%= goals[i].goal %>
   </td>
   <td>
-    <%= goals[i].balance < goals[i].goal ? '<div style="color:red;">Incomplete</div>' : '<div style="color:green;">Complete!</div>' %>
+    <%= goals[i].balance < goals[i].goal ? parseInt(goals[i].goal - goals[i].balance) + "&nbsp;remain" : '<div style="color:green;">Complete!</div>' %>
   </td>
 </tr>
 <% } %>

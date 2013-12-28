@@ -439,6 +439,14 @@ body {
 	text-align: center;
 }
 
+table {
+	border-spacing: 0px;
+}
+
+td {
+	border: 1px black solid;
+}
+
 .mainArea {
 	margin-top: 50px;
 	margin-left: 90px;
