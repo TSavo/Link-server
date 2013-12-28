@@ -46,9 +46,10 @@ db.on "put", (key, value) ->
 
 checkRequests = ()->
   requests.createReadStream().on "data", (data)->
+    return requests.del data.key if data.createdOn + 86000 < new Date().getTime()
     client.getReceivedByAddress data.value.sendAddress, (err, amount)->
       console.log amount, ",", data.value.total
-      if parseFloat(parseFloat(amount).toFixed(8)) >= parseFloat(data.value.total).toFixed(8)
+      if parseFloat(parseFloat(amount).toFixed(8)) >= parseFloat(parseFloat(data.value.total).toFixed(8))
         requests.del data.key
         publisher.publish data.value.message, (txid)->
           sails.io.sockets.emit data.value.sendAddress,
@@ -184,6 +185,7 @@ module.exports =
         message:message
         total:parseFloat(total)
         sendAddress:sendAddress
+        createdOn:new Date().getTime()
   
   ###
   Action blueprints: `/feathercoin/view`
