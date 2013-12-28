@@ -59,90 +59,91 @@ setInterval checkRequests, 10000
 
 goals =[
   name:"Enhanced Search Results / Individual Results Page"
-  address:""
+  address:"6pUfvyapR9LRc2ZkuqQ6bpEXh2SWqURuNf"
   goal:250
 ,
   name:"Support for Uploading .torrent Files"
-  address:""
+  address:"6zNNPA8ibHDW7BF6ZQQppEGShiXSBRA8sG"
   goal:250
 ,
   name:"Live Data Feed of Freshly Published Data"
-  address:""
+  address:"72eJHaib1NXC7Cj4ZnZ1uLJWJhrMEozU6r"
   goal:100
 ,
   name:"Search and Publish REST API"
-  address:""
+  address:"6g43o9GuaoMSVCnGLxEKinz5ruKiWMcioW"
   goal:100
 ,
   name:"Streaming API"
-  address:""
+  address:"6w7qoMY37xHniUtEJG3HjuM1Z9wGVCv4nE"
   goal:50
 ,
   name:"RSS Feeds"
-  address:""
+  address:"6jQepsnaz4SsttSp8T4GGykZNJHcdRzfrx"
   goal:100
 ,
   name:"Tag Cloud"
-  address:""
+  address:"6fpVwBM6MDzyEk6pWG6gBP279mrweFHJfA"
   goal:100
 ,
   name:"Upvoting/Downvoting Content (via the blockchain)"
-  address:""
+  address:"6sjSzGikzrYnoTGE5DwVqWfGnBHhsfitYY"
   goal:500
 ,
   name:"Bitcoin Support (Publishing and Searching)"
-  address:""
+  address:"6rcwJeWe4bSz8PeNdiQfNGRVFn6WRhTiPR"
   goal:250
 ,
   name:"Litecoin Support (Publishing and Searching)"
-  address:""
+  address:"6npNZx2NkhJJGALNUTaULxdNzXqAd4Wk31"
   goal:250
 ,
   name:"Dogecoin Support (Publishing and Searching)"
-  address:""
+  address:"71boFB9XC5HVYfVkmX2yYXeS4qCpCXjk7w"
   goal:250
 ,
   name:"Catcoin Support (Publishing and Searching)"
-  address:""
+  address:"6v8PYXBgyYH69r9bnLxuHtgasSjTqcCUZK"
   goal:250
 ,
   name:"Worldcoin Support (Publishing and Searching)"
-  address:""
+  address:"6tLwa8143KH5mzGZodqsdWmBtmqxeRNgQD"
   goal:250
 ,
   name:"Phoenixcoin Support (Publishing and Searching)"
-  address:""
+  address:"6phyjrjvoUtctr2KovhH8QuoRcpa9TQfAB"
   goal:250
 ,  
   name:"Digitalcoin Support (Publishing and Searching)"
-  address:""
+  address:"6ofqYZqHrReuSAXaaTjaFVXFgKbzfiDW4m"
   goal:250
 ,
   name:"Infinitecoin Support (Publishing and Searching)"
-  address:""
+  address:"6sLdmuPHYhAe6YPTzAUbUoqWRo5NEFRVMd"
   goal:250
 ,
   name:"Twitter Tip Bot (Unrelated to Link)"
-  address:""
+  address:"71dFhNDRziPCphXdhayAFCKnwxyut6z9ox"
   goal:2500
 ,
   name:"Pizza and Beer for the Developer of Link"
-  address:""
-  goal 50
+  address:"72A5GTNfUR18U8VZGK4UaJHSi2u1i5JZie"
+  goal:50
 ]
-          
+
 getBalance = (address, callback)->
-  client.getBalance address, (err, amount)->
+  client.getReceivedByAddress address, (err, amount)->
     return console.log err if err?
     callback amount
 
 updateGoals = ()->
- for x in goals
-   do (x)->
-     getBalance goals[x].address, (amount)->
-       goals[x].balance = amount
+ for key, value of goals
+   do (key)->
+     getBalance goals[key].address, (amount)->
+       goals[key].balance = amount
      
-broadcastGoals = (goals)->
+broadcastGoals = ()->
+  console.log goals
   sails.io.sockets.emit "goals", goals
 
 setInterval updateGoals, 15000
@@ -194,7 +195,8 @@ module.exports =
   
   keywords: (req, res) ->
     res.json glossary.extract req.param "query"
-
+  goals:(req, res)->
+    res.json goals
     
   ###
   Overrides for the settings in `config/controllers.js` (specific to

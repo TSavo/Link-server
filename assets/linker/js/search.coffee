@@ -9,13 +9,10 @@ escapeHtml = (str) ->
   div = document.createElement("div")
   div.appendChild document.createTextNode(str)
   div.innerHTML
+  
+escapeMagnet = (str)->
+  escapeHtml(str).replace /&amp;/g, "&"
     
-sanitizeMessage = (message) ->
-  out = {}
-  for key, value of message
-    out[key] = escapeHtml value
-  out
-
 decodeMagnet = (uri) ->
   result = {}
   data = uri.split("magnet:?")[1]
@@ -39,7 +36,6 @@ decodeMagnet = (uri) ->
         result[key] = [old, val]
     else
       result[key] = val
-
   result
 Router = Backbone.Router.extend 
   routes:
@@ -48,6 +44,7 @@ Router = Backbone.Router.extend
     "publish":"publish"
     "faq":"faq"
     "about":"about"
+    "future":"future"
     "*default":"search"
   search:(query)->
     console.log query
@@ -70,19 +67,30 @@ Router = Backbone.Router.extend
     switchTab("faq-tab")
   about:()->
     switchTab("about-tab")
+  future:()->
+    switchTab("future-tab")
+
+renderGoals = (goals)->
+  html = window.JST["assets/linker/templates/goalItem.html"] 
+    goals:goals
+  $("#goalBody").empty().append html
+  
+   
+
 
 $(document).ready ()->
   count = 0
   router = new Router();
   Backbone.history.start()
- 
-
   socket.on "connect", ()->
     socket.on "searchResult", (result)->
       result.count = count++
       html = window.JST["assets/linker/templates/searchResult.html"] result
       $("#searchResults").append html
-
+    socket.on "goals", (goals)->
+      renderGoals goals
+    socket.get "/feathercoin/goals", (goals)->
+      renderGoals goals
   $("#publishButton").click (event)->
     event.preventDefault()
     formData = $("#publishForm").serializeArray()
@@ -91,7 +99,7 @@ $(document).ready ()->
     for key,value of formData
       if value.value
         sendMe[value.name] = value.value
-    socket.put "/feathercoin/publish", sanitizeMessage(sendMe), (message)->
+    socket.put "/feathercoin/publish", sendMe, (message)->
       html = window.JST["assets/linker/templates/publishResults.html"] message
       $(html).dialog
         width: 500
@@ -130,7 +138,9 @@ $(document).ready ()->
       if name.indexOf(" ") == -1
         name = name.replace(/\./g, " ")
       $("#name").val(name)
-      payload = "magnet:?xt=" + r["xt"] + "&dn=" + r["dn"]
+      xt = r["xt"]
+      xt = xt.join("&xt=") if Array.isArray xt
+      payload = "magnet:?xt=" + xt + "&dn=" + r["dn"]
       $("#payloadInline").val(payload) if payload isnt $("#payloadInline").val()
       socket.get "/feathercoin/keywords?query=" + name, (keywords)->
         $("#keywords").val keywords.join ", "

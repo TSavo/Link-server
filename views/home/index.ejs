@@ -47,7 +47,7 @@
 				<li><a id="publishTabButton" href="#publish">PUBLISH</a></li>
 				<li><a id="faqTabButton" href="#faq">FAQ</a></li>
 				<li><a id="aboutTabButton" href="#about">ABOUT</a></li>
-				<li><a id="aboutTabButton" href="#about">THE FUTURE</a></li>
+				<li class=""><a id="futureTabButton" href="#future">THE FUTURE</a></li>
 			</ul>
 		</div>
 
@@ -156,7 +156,24 @@
 		<p class="faq-answer">The Link reference library for Node.JS can be found here: <a href="https://github.com/TSavo/Link">https://github.com/TSavo/Link</a></p>
 		<p class="faq-answer">The Link Web App (what you're using now) can be found here: <a href="https://github.com/TSavo/Link-server">https://github.com/TSavo/Link-server</a></p>
 		</div>
-		<div id="footer">Donations:&nbsp;BTC: 1DUm3Tk4Ft8sDm37Y7m8XmBfJ56A3HUNin&nbsp;FTC:&nbsp;6krRwcsDTZYaUGpE2fLnS7DqTBNHBpsrjp&nbsp;DOGE:&nbsp;DLpVer8U9qhvZ27uauvr3J979STVwbqcmF</div>
+		<div id="future-tab" class="hidden mainArea">
+			<p class="faq-question center">The future is already here — it’s just not very evenly distributed. -<i>William Gibson</i></p>
+			<p class="faq-answer">
+				Link is completely free of fees. All coins requested in publishing are either burned, or go to miners. It's development and hosting is funded by your donations.
+			</p>
+			<p class="faq-answer">
+				Instead of just asking you to donate, I figured I'd allow you to vote on what feature you'd most like to see. Of course you can also donate to the pizza and beer fund, which is always appreaciated!
+			</p>
+			
+			<table>
+			  <thead>
+			    <tr><th>Feature</th><th>Donation Address (FTC)</th><th>Donated</th><th>Goal</th><th>Status</th></tr>
+			  </thead>
+			  <tbody id="goalBody"></tbody>
+			</table>
+
+		</div>
+		<div id="footer"></div>
 	</div>
 </body>
 </html>

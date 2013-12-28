@@ -438,3 +438,11 @@ body {
 .center {
 	text-align: center;
 }
+
+.mainArea {
+	margin-top: 50px;
+	margin-left: 90px;
+	margin-right: 90px;
+	margin-bottom: 40px;
+	padding-bottom: 40px;
+}
