@@ -1,8 +1,10 @@
 currentTab = "search-tab"
 count = 0
+searchResults = []
+
 switchTab = (tab)->
   $("#" + currentTab).fadeOut ()->
-    $("#" + tab).removeClass("hidden").fadeIn()
+    $("#" + tab).fadeIn()
     currentTab = tab
 
 escapeHtml = (str) ->
@@ -86,6 +88,8 @@ $(document).ready ()->
     socket.removeAllListeners "searchResult"
     socket.removeAllListeners "goals"
     socket.on "searchResult", (result)->
+      return false if not result.name? or not result.name.trim() or not result.payloadInline? or result.payloadInline.indexOf("magnet:") != 0 or _.contains searchResults, result.payloadInline
+      searchResults.push result.payloadInline
       result.count = count++
       html = window.JST["assets/linker/templates/searchResult.html"] result
       $("#searchResults").append html
@@ -101,6 +105,30 @@ $(document).ready ()->
     for key,value of formData
       if value.value
         sendMe[value.name] = value.value
+    if not sendMe.payloadInline? or sendMe.payloadInline.indexOf("magnet:") != 0
+      $('<div>You can\'t publish anything but magnet links.<br></br>For more information on magnet links please visit <a href="http://lifehacker.com/5875899/what-are-magnet-links-and-how-do-i-use-them-to-download-torrents">this web page.</a>').dialog
+        width: 500
+        show: "fadeIn"
+        modal:true
+        closeText: "I Understand"
+        buttons: [
+          text:"I understand"
+          click: ()->
+            $(@).dialog "close"
+        ]
+      return false
+    if not sendMe.name? or not sendMe.name.trim() or not sendMe.description? or not sendMe.description.trim()
+      $('<div>You need to supply a name and a description.</div>').dialog
+        width: 500
+        show: "fadeIn"
+        modal:true
+        closeText: "I Understand"
+        buttons: [
+          text:"I understand"
+          click: ()->
+            $(@).dialog "close"
+        ]
+      return false
     socket.put "/feathercoin/publish", sendMe, (message)->
       html = window.JST["assets/linker/templates/publishResults.html"] message
       $(html).dialog
@@ -151,17 +179,21 @@ $(document).ready ()->
   $("#payloadInline").on "keyup blur", runPrepopulate
   
   $("#searchForm").submit (event)->
+    count = 0
+    searchResults = []
     window.location = "#search/" + $("#searchQuery").val()
     event.preventDefault()
     return false
     
   $("#searchButton").click (event)->
     count = 0
+    searchResults = []
     window.location = "#search/" + $("#searchQuery").val()
     event.preventDefault()
     return false
   $("#innerSearchButton").click (event)->
     count = 0
+    searchResults = []
     window.location = "#search/" + $("#innerSearchQuery").val()
     event.preventDefault()
     return false
