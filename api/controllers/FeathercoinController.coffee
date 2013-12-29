@@ -46,11 +46,9 @@ db.on "put", (key, value) ->
 
 checkRequests = ()->
   requests.createReadStream().on "data", (data)->
-    console.log data
     if not data.value.createdOn? or data.value.createdOn + 86400000 < new Date().getTime()
       return requests.del data.key 
     client.getReceivedByAddress data.value.sendAddress, (err, amount)->
-      console.log  parseFloat(parseFloat(amount).toFixed(8)), ",", parseFloat(parseFloat(data.value.total).toFixed(8))
       if parseFloat(parseFloat(amount).toFixed(8)) >= parseFloat(parseFloat(data.value.total).toFixed(8))
         requests.del data.key
         publisher.publish data.value.message, (txid)->
@@ -175,12 +173,10 @@ module.exports =
     message.description = req.param("description")  if req.param("description")
     message.keywords = req.param("keywords")  if req.param("keywords")
     message.payloadInline = req.param("payloadInline")  if req.param("payloadInline")
-    console.log message
     addresses = publisher.encodeAddresses message
     total = publisher.getMessageCost addresses
     client.getNewAddress (err, sendAddress)->
       return console.log(err) if err?
-      console.log sendAddress
       res.json
         addresses:addresses
         total:parseFloat(total)

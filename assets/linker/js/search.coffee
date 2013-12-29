@@ -49,7 +49,6 @@ Router = Backbone.Router.extend
     "future":"future"
     "*default":"search"
   search:(query)->
-    console.log query
     switchTab("search-tab") unless currentTab == "search-tab"
     if !query?
       if $("#searchResultsBody").is(":visible")
@@ -100,7 +99,6 @@ $(document).ready ()->
   $("#publishButton").click (event)->
     event.preventDefault()
     formData = $("#publishForm").serializeArray()
-    console.log JSON.stringify formData
     sendMe = {}
     for key,value of formData
       if value.value
