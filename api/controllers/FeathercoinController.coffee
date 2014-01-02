@@ -95,6 +95,10 @@ goals =[
   address:"6sjSzGikzrYnoTGE5DwVqWfGnBHhsfitYY"
   goal:500
 ,
+  name:"Feathercoin Faucet"
+  address:"6kX7zv3nwF7YEy6NxB1WtNsb6mPfUQv38E"
+  goal:300
+,
   name:"Bitcoin Support (Publishing and Searching)"
   address:"6rcwJeWe4bSz8PeNdiQfNGRVFn6WRhTiPR"
   goal:250
@@ -125,6 +129,10 @@ goals =[
 ,
   name:"Infinitecoin Support (Publishing and Searching)"
   address:"6sLdmuPHYhAe6YPTzAUbUoqWRo5NEFRVMd"
+  goal:250
+,
+  name:"MoonCoin Support (Publishing and Searching)"
+  address:"6eRAeACNen5JV8QgRyaUMDrGungih3Y1ge"
   goal:250
 ,
   name:"Twitter Tip Bot (Unrelated to Link)"
