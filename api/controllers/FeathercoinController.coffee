@@ -8,16 +8,19 @@ glossary = require("glossary")
   collapse:true
 
 
-LinkPublisher = require("blockchain-link").LinkPublisher
-LinkReader = require("blockchain-link").LinkReader
+LinkPublisher = require("../link/index").LinkPublisher
+LinkReader = require("../link/index").LinkReader
 levelup = require("levelup")
 bitcoin = require("bitcoin")
 client = new bitcoin.Client(
   host: "localhost"
-  port: 8332
-  user: "Kevlar"
-  pass: "zabbas"
+  port: 9667
+  user: "feathercoinrpc"
+  pass: "6vh6swB6wfjkHRq2XHLsiqxb5az4aY6fSBLtfGHV9ZRv"
 )
+
+client.getInfo (err,info) -> console.log info
+
 client.version= 14
 db = LinkReader.getDB "Feathercoin", client
 requests = new levelup "Feathercoin-requests",
