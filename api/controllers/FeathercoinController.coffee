@@ -1,21 +1,6 @@
-###
-FeathercoinController
 
-@module :: Controller
-@description :: A set of functions called `actions`.
 
-Actions contain code telling Sails how to respond to a certain type of
-request. (i.e. do stuff, then send some JSON, show an HTML page, or redirect
-to another URL)
-
-You can configure the blueprint URLs which trigger these actions
-(`config/controllers.js`) and/or override them with custom routes
-(`config/routes.js`)
-
-NOTE: The code you write here supports both HTTP and Socket.io automatically.
-
-@docs :: http:// sailsjs.org/#!documentation/controllers
-###
+sails = require "sails"
 
 
 glossary = require("glossary")
@@ -23,19 +8,22 @@ glossary = require("glossary")
   collapse:true
 
 
-LinkPublisher = require("blockchain-link").LinkPublisher
-LinkReader = require("blockchain-link").LinkReader
+LinkPublisher = require("../link/index").LinkPublisher
+LinkReader = require("../link/index").LinkReader
 levelup = require("levelup")
 bitcoin = require("bitcoin")
 client = new bitcoin.Client(
   host: "localhost"
-  port: 8332
-  user: "Kevlar"
-  pass: "zabbas"
+  port: 9667
+  user: "feathercoinrpc"
+  pass: "6vh6swB6wfjkHRq2XHLsiqxb5az4aY6fSBLtfGHV9ZRv"
 )
+
+client.getInfo (err,info) -> console.log info
+
 client.version= 14
 db = LinkReader.getDB "Feathercoin", client
-requests = new levelup "Feathercoin-requests", 
+requests = new levelup "Feathercoin-requests",
     valueEncoding: 'json'
 
 
@@ -47,7 +35,7 @@ db.on "put", (key, value) ->
 checkRequests = ()->
   requests.createReadStream().on "data", (data)->
     if not data.value.createdOn? or data.value.createdOn + 86400000 < new Date().getTime()
-      return requests.del data.key 
+      return requests.del data.key
     client.getReceivedByAddress data.value.sendAddress, (err, amount)->
       if parseFloat(parseFloat(amount).toFixed(8)) >= parseFloat(parseFloat(data.value.total).toFixed(8))
         requests.del data.key
@@ -122,7 +110,7 @@ goals =[
   name:"Phoenixcoin Support (Publishing and Searching)"
   address:"6phyjrjvoUtctr2KovhH8QuoRcpa9TQfAB"
   goal:250
-,  
+,
   name:"Digitalcoin Support (Publishing and Searching)"
   address:"6ofqYZqHrReuSAXaaTjaFVXFgKbzfiDW4m"
   goal:250
@@ -154,7 +142,7 @@ updateGoals = ()->
    do (key)->
      getBalance goals[key].address, (amount)->
        goals[key].balance = amount
-     
+
 broadcastGoals = ()->
   sails.io.sockets.emit "goals", goals
 
@@ -162,7 +150,7 @@ setInterval updateGoals, 15000
 setInterval broadcastGoals, 30000
 
 module.exports =
-  
+
   ###
   Action blueprints: `/feathercoin/search`
   ###
@@ -171,7 +159,7 @@ module.exports =
       res.socket.emit "searchResult", result
     next()
 
-  
+
   ###
   Action blueprints: `/feathercoin/publish`
   ###
@@ -190,25 +178,25 @@ module.exports =
         total:parseFloat(total)
         sendAddress:sendAddress
         message:message
-      requests.put sendAddress, 
+      requests.put sendAddress,
         message:message
         total:parseFloat(total)
         sendAddress:sendAddress
         createdOn:new Date().getTime()
-  
+
   ###
   Action blueprints: `/feathercoin/view`
   ###
   view: (req, res) ->
-    
+
     # Send a JSON response
     res.view "home/index"
-  
+
   keywords: (req, res) ->
     res.json glossary.extract req.param "query"
   goals:(req, res)->
     res.json goals
-    
+
   ###
   Overrides for the settings in `config/controllers.js` (specific to
   FeathercoinController)
